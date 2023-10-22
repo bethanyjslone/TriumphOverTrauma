@@ -9,6 +9,12 @@
     <title>Results</title>
 </head>
 <body>
-    
+    <ul id="data">
+    {% for heartrate in data %}
+        {% if heartrate > 1 %}
+            <li>{{ heartrate }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
 </body>
 </html>
