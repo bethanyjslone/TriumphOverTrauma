@@ -7,7 +7,7 @@ app = Flask(__name__)
 EXCEL_DATA = "excel_data.xlsx"
 
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
 
@@ -20,6 +20,11 @@ def results():
 @app.route("/resources")
 def resources():
     return render_template("resources.html")
+
+
+@app.route("/team")
+def team():
+    return render_template("team.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -63,7 +68,6 @@ def logger():
         new_data = []
         for i in range(len(data)):
             new_data.append(int(data[i][0]))
-            print(type(data[i][0]))
         return render_template("results.html", data=new_data)
 
 
