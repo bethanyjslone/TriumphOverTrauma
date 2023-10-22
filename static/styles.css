@@ -141,3 +141,21 @@ a:visited {
 footer {
     background-color: rgb(21, 73, 36) !important;
 }
+
+.heartrate {
+    color: white;
+    font-family: "Gill Sans";
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.video-link {
+    color: white;
+    font-family: "Gill Sans";
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+}

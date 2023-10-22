@@ -65,22 +65,26 @@ def login():
         ...
 
 
-@app.route("/logger", methods=["GET"])
+@app.route("/logger", methods=["GET", "POST"])
 def logger():
     if request.method == "GET":
-        df = pd.read_excel(
-            io=EXCEL_DATA,
-            sheet_name="Data In",
-            usecols=[1],
-            skiprows=lambda x: x not in range(8, 52),
-            keep_default_na=False,
-        )
-        values = df.values
-        data = list(values)
-        new_data = []
-        for i in range(len(data)):
-            new_data.append(int(data[i][0]))
-        return render_template("results.html", data=new_data)
+        return render_template("results.html")
+
+    elif request.method == "POST":
+        if not request.form["heartrate"]:
+            return render_template("results.html")
+        heartrate = int(request.form["heartrate"])
+        if heartrate > 100:
+            video = "https://youtu.be/Vdce8ulDKFs?feature=shared"
+            image = "../static/Sleep-Infographic.png"
+        elif heartrate > 70:
+            video = "https://youtu.be/lkORzatrCqY?feature=shared"
+            image = "../static/Anxiety-Infographic.png"
+        else:
+            video = "https://youtu.be/g_HFX6fRjIM?feature=shared"
+            image = "../static/Anxiety-Infographic-1.png"
+
+        return render_template("results.html", video=video, image=image)
 
 
 if __name__ == "__main__":
