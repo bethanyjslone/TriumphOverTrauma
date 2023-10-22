@@ -7,7 +7,7 @@
 }
 
 button {
-    background-color:rgb(143, 158, 134); /* Green */
+    background-color:rgb(12, 50, 12); /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -35,6 +35,12 @@ h2 {
     font-family: "Gill Sans";
     text-align: center;
     color: rgb(195, 204, 190);
+}
+
+h3 {
+    font-family: "Gill Sans";
+    text-align: center;
+    color: rgb(195, 204, 190); 
 }
 
 body {
@@ -92,4 +98,12 @@ a:link {
     color: rgb(143, 158, 134);
     background-color: transparent;
     text-decoration: none;
+}
+
+a:hover {
+    color:#ffffff;
+}
+
+a:visited {
+    color: #ffffff
 }
