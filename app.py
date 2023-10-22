@@ -1,13 +1,6 @@
 from flask import Flask, render_template, request
-from werkzeug.security import check_password_hash, generate_password_hash
-import pandas as pd
-import numpy as np
-import sqlite3
-import os
 
 app = Flask(__name__)
-EXCEL_DATA = "excel_data.xlsx"
-CURRENT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 
 @app.route("/", methods=["GET"])
@@ -28,41 +21,6 @@ def resources():
 @app.route("/team")
 def team():
     return render_template("team.html")
-
-
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    if request.method == "GET":
-        return render_template("register.html")
-
-    # elif request.method == "POST":
-    #     email = request.form["email"]
-    #     password = request.form["password"]
-
-    #     if not email:
-    #         error = "- Please Enter an Email -"
-    #         return render_template("register.html", error=error)
-
-    #     elif not password:
-    #         error = "- Please Enter a Password -"
-    #         return render_template("register.html", error=error)
-
-    #     connection = sqlite3.connect(CURRENT_DIRECTORY + "\TriumphOverTrauma-logs.db")
-    #     cursor = connection.cursor()
-    #     hashed_password = generate_password_hash(password)
-    #     query = "INSERT INTO User (Email, Password) VALUES ('{e}', {p})".format(
-    #         e=email, p=hashed_password
-    #     )
-    #     cursor.execute(query)
-    #     connection.commit()
-
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "GET":
-        return render_template("login.html")
-    elif request.method == "POST":
-        ...
 
 
 @app.route("/logger", methods=["GET", "POST"])
